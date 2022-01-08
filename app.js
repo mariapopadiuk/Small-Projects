@@ -120,21 +120,6 @@
 // }
 
 
-//form with 6 inputs
-// 1name
-// 2last AnimationEffect
-// 3email
-// 4phone Number
-// 5password
-// 6repete password
-
-// any can be empty(alert error)
-// email mast be email
-// phone mas be min 9 di max 12 didg
-// password mast be min 8 
-// two password filds must mutch
-// if all correct log sucess and clear form 
-
 let btn = document.querySelector('.btn');
 let inputName = document.querySelector('.firstName');
 let inputLastName = document.querySelector('.lastName');
