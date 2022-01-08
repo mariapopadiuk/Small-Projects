@@ -190,5 +190,21 @@ for(let i = 0; i < allInputs.length; i++){
   }
 }
 }
-
 btn.addEventListener('click', formValidation);
+
+//Finish form validation
+
+
+let lbtn = document.querySelector('.lbtn');
+let numbers = '';
+let out = document.querySelector('.out');
+
+function getLuckyNum(){
+  for(let i = 0; i <= 5; i++){
+    numbers += Math.floor(Math.random() * 50) + ' ';
+  }
+  out.innerHTML = numbers;
+
+  numbers = '';
+}
+lbtn.addEventListener('click', getLuckyNum);
