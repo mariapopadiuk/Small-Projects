@@ -130,52 +130,45 @@ let inputConfirmation = document.querySelector('.confirmPassword');
 let error = document.querySelector('.error')
 let allInputs = document.querySelectorAll('.input');
 
+function outputErroAndSetBorder(message, element) {
+  error.innerHTML = message;
+  element.style = 'border: 2px solid green;'
+}
+
 function formValidation(e) {
   e.preventDefault();
   if (inputName.value === '') {
-    error.innerHTML = 'Please enter your Name';
-    inputName.style = 'border: 1px solid red;' 
+    outputErroAndSetBorder('Please enter your Name', inputName)
   }
   else if (inputLastName.value === '') {
-    error.innerHTML = 'Please enter your Last Name';
-    inputLastName.style = 'border: 1px solid red;'
-  } 
-  else if (inputEmail.value === ''){
-    error.innerHTML = 'Please enter your Email';
-    inputEmail.style = 'border: 1px solid red;'
+    outputErroAndSetBorder('Please enter your Last Name', inputLastName)
   }
-  else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(inputEmail.value))
-{
-    error.innerHTML = 'Please enter a valid Email';
-    inputEmail.style = 'border: 1px solid red;'
+  else if (inputEmail.value === '') {
+    outputErroAndSetBorder('Please enter your Email', inputEmail)
   }
-  else if (inputPhone.value === ''){
-    error.innerHTML = 'Please enter your Phone Number';
-    inputPhone.style = 'border: 1px solid red;'
+  else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(inputEmail.value)) {
+    outputErroAndSetBorder('Please enter a valid Email', inputEmail)
   }
-  else if (inputPhone.value.length < 9){
-    error.innerHTML = 'Phone number must have min list 9 digits'
-    inputPhone.style = 'border: 1px solid red;'
+  else if (inputPhone.value === '') {
+    outputErroAndSetBorder('Please enter your Phone Number', inputPhone)
+  }
+  else if (inputPhone.value.length < 9) {
+    outputErroAndSetBorder('Phone number must have min list 9 digits', inputPhone)
   }
   else if (inputPhone.value.length > 12) {
-    error.innerHTML = 'Phone number must have max list 12 digits'
-    inputPhone.style = 'border: 1px solid red;'
+    outputErroAndSetBorder('Phone number must have max list 12 digits', inputPhone)
   }
-  else if (inputPassword.value === ''){
-    error.innerHTML = 'Please enter your Password';
-    inputPassword.style = 'border: 1px solid red;'
+  else if (inputPassword.value === '') {
+    outputErroAndSetBorder('Please enter your Password', inputPassword)
   }
   else if (inputPassword.value.length < 8) {
-    error.innerHTML = 'Password must have at leaste 8 characters';
-    inputPassword.style = 'border: 1px solid red;'
+    outputErroAndSetBorder('Password must have at leaste 8 characters', inputPassword)
   }
-  else if (inputConfirmation.value === ''){
-    error.innerHTML = 'Please repeate your Password';
-    inputConfirmation.style = 'border: 1px solid red;'
+  else if (inputConfirmation.value === '') {
+    outputErroAndSetBorder('Please repeate your Password', inputConfirmation)
   }
   else if (inputPassword.value !== inputConfirmation.value) {
-    error.innerHTML = 'Passwords dont match';
-    inputConfirmation.style = 'border: 1px solid red;'
+    outputErroAndSetBorder('Passwords dont match', inputConfirmation)
   }
   else {
     alert('Thank you for your registration');
@@ -184,11 +177,11 @@ function formValidation(e) {
       allInputs[i].value = '';
     }
   }
-for(let i = 0; i < allInputs.length; i++){
-  if(allInputs[i].value !== ''){
-    allInputs[i].style = '';
+  for (let i = 0; i < allInputs.length; i++) {
+    if (allInputs[i].value !== '') {
+      allInputs[i].style = '';
+    }
   }
-}
 }
 btn.addEventListener('click', formValidation);
 
@@ -199,8 +192,8 @@ let lbtn = document.querySelector('.lbtn');
 let numbers = '';
 let out = document.querySelector('.out');
 
-function getLuckyNum(){
-  for(let i = 0; i <= 5; i++){
+function getLuckyNum() {
+  for (let i = 0; i <= 5; i++) {
     numbers += Math.floor(Math.random() * 50) + ' ';
   }
   out.innerHTML = numbers;
