@@ -15,4 +15,4 @@ JS studying material
 // two password fields must match
 // if all correct clear all errors and felds display success mgs
 
-check it out  https://mariapopadiuk.github.io/Small-Projects/
+Check it out  https://mariapopadiuk.github.io/Small-Projects/
